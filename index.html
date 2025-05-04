@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuddyBase - Support Network for Special Needs</title>
+    <style>
+        /* Base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Typography */
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #000;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin: 2rem 0 1rem;
+            color: #000;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin: 1.5rem 0 1rem;
+            color: #000;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        /* Lists */
+        ul, ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Cards */
+        .card {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* Code blocks */
+        pre {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 1rem 0;
+            white-space: pre-wrap;       /* CSS 3 */
+            white-space: -moz-pre-wrap;  /* Mozilla */
+            white-space: -pre-wrap;      /* Opera 4-6 */
+            white-space: -o-pre-wrap;    /* Opera 7 */
+            word-wrap: break-word;       /* Internet Explorer 5.5+ */
+            font-family: inherit;
+            line-height: 1.6;
+        }
+
+        /* Blockquotes */
+        blockquote {
+            border-left: 4px solid #000;
+            padding-left: 1rem;
+            margin: 1rem 0;
+            font-style: italic;
+        }
+
+        /* Grid layout for cards */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 2rem 0;
+            align-items: start;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.75rem;
+            }
+
+            h3 {
+                font-size: 1.25rem;
+            }
+
+            .card {
+                padding: 15px;
+            }
+        }
+
+        /* Value propositions styling */
+        .value-prop {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* Scenario headers */
+        .scenario-header {
+            border-bottom: 2px solid #000;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* Feature list */
+        .feature-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .feature-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Update value section styling to match MD code block style */
+        .value-section {
+            margin-top: 15px;
+            background: #ffffff;
+            color: #171717;
+            padding: 12px 20px 12px 20px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            position: relative;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .value-section::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: rgba(28, 28, 28, 0.8);
+            border-radius: 3px 0 0 3px;
+        }
+
+        .value-section h5 {
+            color: rgba(16, 16, 16, 0.9);
+            margin-bottom: 12px;
+            font-size: 0.95em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 500;
+            position: relative;
+            padding-left: 8px;
+        }
+
+        .value-section ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0 0 0 8px;
+            border-left: 1px solid rgba(255,255,255,0.2);
+            margin-left: 4px;
+        }
+
+        .value-section li {
+            margin: 8px 0;
+            padding-left: 12px;
+            position: relative;
+            font-weight: 300;
+            letter-spacing: 0.2px;
+            line-height: 1.4;
+        }
+
+        .value-section li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 6px;
+            height: 1px;
+            background: rgba(255,255,255,0.4);
+        }
+
+        .value-section li:first-child {
+            margin-top: 0;
+        }
+
+        .value-section li:last-child {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>BuddyBase</h1>
+    
+    <div class="card">
+        <p>BuddyBase is a US-based web platform designed to support individuals with disabilities (autism spectrum, visual impairments, Down syndrome, Asperger's), their parents, and caregivers in post-school social integration. The platform focuses on fostering community connection, access to resources, and opportunities with a highly accessible UX supporting voice, haptic, and typing inputs.</p>
+    </div>
+
+    <h2>Mission</h2>
+    <div class="card">
+        <p>To create a judgment-free, crisis-ready platform that provides practical help and genuine connection for individuals with disabilities and their caregivers. BuddyBase isn't about "solving" disabilities - it's about creating a safety net for people who need real support, understanding, and community.</p>
+    </div>
+
+    <h2>Core Features</h2>
+    <div class="card">
+        <ul class="feature-list">
+            <li>Crisis Connection Network</li>
+            <li>Respite Exchange System</li>
+            <li>Interest-Based Matching</li>
+            <li>Resource Pooling</li>
+            <li>Raw Support Communities</li>
+            <li>Accessibility-First Design</li>
+            <li>Caregiver Support Network</li>
+        </ul>
+    </div>
+
+    <h2>Technical Stack</h2>
+    <div class="card">
+        <ul class="feature-list">
+            <li>Frontend: React with CDN-hosted JSX</li>
+            <li>Styling: Tailwind CSS</li>
+            <li>Backend: Supabase (PostgreSQL, auth, real-time)</li>
+            <li>Search/Recommendations: Pinecone (vector search)</li>
+            <li>Hosting: Vercel</li>
+        </ul>
+    </div>
+
+    <h2>Accessibility Focus</h2>
+    <div class="card">
+        <ul class="feature-list">
+            <li>WCAG 2.1 AA compliance</li>
+            <li>Multiple input methods (voice, haptic, typing)</li>
+            <li>Customizable UI settings</li>
+            <li>Simplified interfaces for varying abilities</li>
+            <li>Caregiver integration options</li>
+        </ul>
+    </div>
+
+    <h2>Real-World Scenarios</h2>
+    
+    <div class="card">
+        <h3 class="scenario-header">Scenario 1: Sarah and Michael</h3>
+        
+        <h4>Meet Sarah (60) and Michael (23)</h4>
+        <p><strong>Sarah:</strong> Michael's primary caregiver</p>
+        <p><strong>Michael:</strong></p>
+        <ul>
+            <li>Has autism and experiences seizures</li>
+            <li>Needs constant supervision for safety</li>
+            <li>Has a strict home routine</li>
+            <li>Verbal but prefers familiar environments</li>
+            <li>Loves video games (particularly Minecraft) and has encyclopedic knowledge of dinosaurs</li>
+            <li>Can use a tablet independently for games</li>
+            <li>Gets overwhelmed in crowded or noisy places</li>
+        </ul>
+
+        <div class="grid">
+            <div class="value-prop">
+                <h4>Safety Net Connections</h4>
+                <pre>Sarah discovers through the app that three streets away lives Janet, who has a 25-year-old son Tommy with similar challenges. Tommy also needs supervision and loves Minecraft. Through the caregiver chat feature, Sarah and Janet arrange a controlled meetup at one of their homes.</pre>
+                <div class="value-section">
+                    <h5>Value:</h5>
+                    <ul>
+                        <li>Sarah finds another mom who truly "gets it"</li>
+                        <li>Michael might gain a friend who understands his pace</li>
+                        <li>Both families could potentially help each other with supervision</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="value-prop">
+                <h4>Home-Based Income</h4>
+                <pre>Through the app's resource section, Sarah learns about "Remote Dinosaur Fact Checker" opportunities with an educational content creator. Michael, with his extensive dinosaur knowledge, could review content for accuracy from home, under Sarah's supervision.</pre>
+                <div class="value-section">
+                    <h5>Value:</h5>
+                    <ul>
+                        <li>Michael gains purpose and some income</li>
+                        <li>Work fits around seizure episodes</li>
+                        <li>Leverages his existing interests</li>
+                        <li>Doesn't require transportation</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="value-prop">
+                <h4>Structured Social Activities</h4>
+                <pre>The app shows a weekly online Minecraft group specifically for young adults with autism, moderated by a special needs coordinator. Players build together in a controlled server environment, using voice chat if comfortable.</pre>
+                <div class="value-section">
+                    <h5>Value:</h5>
+                    <ul>
+                        <li>Social interaction from the safety of home</li>
+                        <li>Activity aligns with existing interests</li>
+                        <li>No transportation needed</li>
+                        <li>Sarah can monitor nearby while doing other tasks</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="value-prop">
+                <h4>Caregiver Support Network</h4>
+                <pre>Sarah joins a group of local parents facing similar challenges. They share:
+- Local neurologists who understand autism + seizures
+- Tips for handling specific situations
+- Emergency backup care options
+- Emotional support during tough days</pre>
+                <div class="value-section">
+                    <h5>Value:</h5>
+                    <ul>
+                        <li>Sarah feels less alone</li>
+                        <li>Practical, local solutions</li>
+                        <li>Emergency support network</li>
+                        <li>Knowledge sharing about services</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="value-prop">
+                <h4>Future Planning Resources</h4>
+                <pre>Through the app's resource matching, Sarah connects with a local special needs financial planner who specializes in setting up special needs trusts and long-term care plans.</pre>
+                <div class="value-section">
+                    <h5>Value:</h5>
+                    <ul>
+                        <li>Practical help planning for Michael's future</li>
+                        <li>Connection to specialized expertise</li>
+                        <li>Peace of mind for aging parents</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="value-prop">
+                <h4>Micro-Volunteering From Home</h4>
+                <pre>Michael discovers he can help transcribe dinosaur museum placards into simple language for kids, right from his tablet. It's broken into small, manageable tasks he can do when feeling up to it.</pre>
+                <div class="value-section">
+                    <h5>Value:</h5>
+                    <ul>
+                        <li>Contributes to society</li>
+                        <li>Uses his interests and knowledge</li>
+                        <li>No pressure about seizures</li>
+                        <li>Builds resume experience</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="value-prop">
+                <h4>Skill Development That Fits</h4>
+                <pre>The app matches Michael with an online course teaching basic data entry skills, specifically designed for individuals with autism. The course is self-paced and can be paused anytime.</pre>
+                <div class="value-section">
+                    <h5>Value:</h5>
+                    <ul>
+                        <li>Practical skill development</li>
+                        <li>Respects his needs and limitations</li>
+                        <li>Potential future income opportunity</li>
+                        <li>Builds confidence</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3 class="scenario-header">Scenario 2: David and Linda</h3>
+        
+        <h4>Meet David (19) and Linda (45)</h4>
+        <div class="grid">
+            <div>
+                <p><strong>David:</strong></p>
+                <ul>
+                    <li>Moderate-to-severe autism</li>
+                    <li>Prone to self-injurious behavior when frustrated</li>
+                    <li>Recently aged out of school system</li>
+                    <li>Obsessed with trains and train schedules</li>
+                    <li>Limited verbal communication</li>
+                    <li>Uses iPad with communication app</li>
+                </ul>
+            </div>
+            <div>
+                <p><strong>Linda:</strong></p>
+                <ul>
+                    <li>Single mom</li>
+                    <li>Works two jobs</li>
+                    <li>Can't afford full-time care</li>
+                    <li>Exhausted and depressed</li>
+                    <li>Monthly ER visits from self-injury</li>
+                </ul>
+            </div>
+        </div>
+
+        <blockquote>
+            "Everyone says 'reach out for help' but they don't understand. The last support group I tried, people just shared Pinterest activities and talked about 'special angels.' My son put his head through a wall last week. I haven't slept more than 4 hours straight in months. His old school friends are all in programs we can't afford. The social worker gave me another pamphlet about 'community resources' - like I haven't called every number in this city already. David's started hitting himself more since losing his school routine. The other day at the grocery store, he had a meltdown and some lady told me I 'just need to discipline him better.' I broke down crying in the cereal aisle."
+        </blockquote>
+
+        <div class="grid">
+            <div class="value-prop">
+                <h4>Crisis Connection</h4>
+                <pre>It's 2 AM. David's having a meltdown. Linda's exhausted and scared. Through BuddyBase's emergency network, she connects with Mary, another mom 10 minutes away who's dealt with similar situations. Mary talks Linda through de-escalation techniques while on standby to come over if needed.</pre>
+                <div class="value-section">
+                    <h5>Value:</h5>
+                    <ul>
+                        <li>Real-time crisis support</li>
+                        <li>Local physical backup</li>
+                        <li>Someone who truly understands</li>
+                        <li>No judgment or bureaucracy</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="value-prop">
+                <h4>Train Enthusiast Connection</h4>
+                <pre>Through the app's interest matching, they connect with a retired train conductor who now works with special needs adults. He starts sending David real train schedules and photos. Eventually, they arrange supervised visits to quiet train stations during off-hours. David's self-injurious episodes decrease when he has these visits to anticipate.</pre>
+                <div class="value-section">
+                    <h5>Value:</h5>
+                    <ul>
+                        <li>Channels special interest positively</li>
+                        <li>Creates predictable excitement</li>
+                        <li>Reduces negative behaviors</li>
+                        <li>Professional supervision available</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="value-prop">
+                <h4>Raw Support Threads</h4>
+                <pre>Linda finds a private group for parents dealing with aggressive episodes. No toxic positivity allowed. Just real talk:
+- "My arms are covered in bruises from yesterday's meltdown"
+- "I love my kid but I hate this life sometimes"
+- "Anyone else's marriage fall apart from this?"
+- "I'm so tired I can't see straight"</pre>
+                <div class="value-section">
+                    <h5>Value:</h5>
+                    <ul>
+                        <li>Unfiltered emotional release</li>
+                        <li>No pressure to be positive</li>
+                        <li>Practical crisis advice</li>
+                        <li>People who truly understand</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="value-prop">
+                <h4>Respite Exchange Network</h4>
+                <pre>Linda discovers three other local families through BuddyBase's "Respite Exchange" feature. They create a rotation where each parent watches multiple kids for a few hours while others get a break. It's not perfect - there are meltdowns, some days get canceled - but Linda gets her first uninterrupted shower in months.</pre>
+                <div class="value-section">
+                    <h5>Value:</h5>
+                    <ul>
+                        <li>Free, trust-based respite</li>
+                        <li>Reciprocal support</li>
+                        <li>Kids get socialization</li>
+                        <li>Parents get crucial breaks</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="value-prop">
+                <h4>Resource Pooling</h4>
+                <pre>Linda connects with two other local moms to split the cost of a specialized behavioral therapist who can make home visits. None could afford it alone. They coordinate schedules and share transportation.</pre>
+                <div class="value-section">
+                    <h5>Value:</h5>
+                    <ul>
+                        <li>Makes services affordable</li>
+                        <li>Shared logistics</li>
+                        <li>Kids get needed help</li>
+                        <li>Parents share the load</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>The Real Value Proposition</h3>
+        <p>BuddyBase isn't about heartwarming success stories. It's about survival, about making it through another day. It's about finding people who understand that sometimes victory is just preventing a trip to the ER, or getting two hours of sleep, or finding someone who doesn't flinch when you admit how hard it is.</p>
+        
+        <h4>Platform Needs:</h4>
+        <ul class="feature-list">
+            <li>Judgment-free</li>
+            <li>Crisis-ready</li>
+            <li>Practically helpful</li>
+            <li>Brutally honest</li>
+            <li>Locally connected</li>
+            <li>Resource-focused</li>
+        </ul>
+    </div>
+</body>
+</html> 

@@ -33,4 +33,20 @@ yarn-error.log*
 *.sw?
 
 # Local development
+*.local
+
+# Vercel
+.vercel
+.now
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Local development
 *.local 

@@ -1,0 +1,27 @@
+{
+  "name": "buddybase",
+  "version": "1.0.0",
+  "description": "A support network platform for individuals with disabilities, their parents, and caregivers",
+  "main": "index.html",
+  "scripts": {
+    "dev": "serve .",
+    "build": "echo 'No build step required'"
+  },
+  "dependencies": {
+    "serve": "^14.2.1"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/james-gannon/BuddyBase.git"
+  },
+  "keywords": [
+    "disability",
+    "support",
+    "community",
+    "accessibility",
+    "caregivers"
+  ],
+  "author": "",
+  "license": "MIT"
+} 
