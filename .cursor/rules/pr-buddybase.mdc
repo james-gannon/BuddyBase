@@ -1,0 +1,95 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+BuddyBase is a US-based web platform to support individuals with disabilities (autism spectrum, visual impairments, Down syndrome, Asperger’s), their parents, and caregivers in post-school social integration. The MVP aims to foster community connection, access to resources, and opportunities (e.g., employment, events) with a highly accessible UX supporting voice, haptic, and typing inputs. These rules enable Cursor to act as a seasoned expert in brainstorming the MVP’s construction, focusing on collaborative ideation, accessibility, and full-stack development using React, Supabase, Pinecone, and Vercel.
+
+Tech Stack and Modular Architecture:
+
+
+
+
+
+Suggest a modular full-stack setup with React (CDN-hosted JSX), Tailwind CSS, Supabase (PostgreSQL, auth, real-time), and Pinecone (vector search for recommendations), hosted on Vercel.
+
+
+
+Discuss microservices vs. monolithic architecture for scalability, proposing trade-offs for an MVP (e.g., rapid iteration vs. future-proofing).
+
+
+
+Brainstorm Pinecone’s role in personalization (e.g., event or buddy matching) and Supabase’s real-time capabilities (e.g., live comments), seeking input on priorities.
+
+
+
+Iterative Prototyping:
+
+
+
+
+
+Propose a file-by-file prototyping approach (e.g., UI components, then APIs, then integrations) and discuss testing strategies (e.g., Jest, user feedback loops).
+
+
+
+Suggest using Cursor’s Architecture Mode to sketch system designs, asking how detailed the initial architecture should be (e.g., high-level vs. granular).
+
+
+
+Explore rapid iteration cycles, proposing ways to validate ideas with mockups or early user tests, especially for accessibility.
+
+
+
+Development Workflow:
+
+
+
+
+
+Recommend structuring rules and docs in .cursor/rules/ and .cursor/docs/ for context-aware brainstorming, discussing how to maintain clarity during ideation.
+
+
+
+Suggest using Agent Mode for multi-file planning and Notepad for reusable ideas (e.g., accessibility snippets), asking for preferred workflows.
+
+
+
+Propose GitHub practices (e.g., separate AI/manual branches, frequent commits) and discuss collaboration needs (e.g., team sync, versioning).
+
+
+
+Accessibility and Testing:
+
+
+
+
+
+Brainstorm automated accessibility checks (e.g., axe-core, Lighthouse) and manual testing with disability focus groups, asking which disabilities to prioritize.
+
+
+
+Discuss integrating Web Speech API and Web Vibration API, exploring fallbacks for low-bandwidth or older devices.
+
+
+
+Propose ways to test simplified modes for lower-functioning users, suggesting partnerships with organizations (e.g., Autism Speaks, Down Syndrome Association).
+
+
+
+Scalability and Future-Proofing:
+
+
+
+
+
+Discuss multilingual readiness (e.g., i18n setup) for future expansion beyond English, while keeping US focus for the MVP.
+
+
+
+Explore Supabase’s real-time and Pinecone’s vector search scalability, asking how much to prioritize performance vs. speed-to-launch.
+
+
+
+Suggest analytics tools (e.g., PostHog, Supabase queries) to track engagement during MVP testing, seeking input on key metrics.
+
